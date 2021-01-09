@@ -2,11 +2,17 @@ package com.werockstar.tourandroid.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivityLoginBinding
 import com.werockstar.tourandroid.home.HomeActivity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class LoginActivity : AppCompatActivity(), LoginPresenter.LoginView {
+
+	@Inject lateinit var presenter: LoginPresenter
 
 	private val binding: ActivityLoginBinding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
 
@@ -14,17 +20,26 @@ class LoginActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
 
+		presenter.attachView(this)
+
 		binding.buttonSignIn.setOnClickListener {
 			val password = binding.editTextPassword.text.toString()
 			val username = binding.editTextUsername.text.toString()
-
-			if (username == "admin" && password == "admin") {
-				startActivity(Intent(this, HomeActivity::class.java))
-				finish()
-			} else {
-				binding.editTextPassword.setText("")
-			}
+			presenter.authenticate(username, password)
 		}
 
+	}
+
+	override fun toHomeScreen() {
+		startActivity(Intent(this, HomeActivity::class.java))
+		finish()
+	}
+
+	override fun showWarning(message: String) {
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+	}
+
+	override fun resetPassword() {
+		binding.editTextPassword.setText("")
 	}
 }

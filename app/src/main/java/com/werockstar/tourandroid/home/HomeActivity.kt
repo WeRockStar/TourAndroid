@@ -1,11 +1,9 @@
 package com.werockstar.tourandroid.home
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.werockstar.tourandroid.databinding.ActivityHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
