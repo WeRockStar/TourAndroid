@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TourAndroid">
         <activity android:name=".SplashScreenActivity"
-			android:theme="@style/Theme.TourAndroid.NoActionBar"
-			>
+			android:theme="@style/Theme.TourAndroid.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

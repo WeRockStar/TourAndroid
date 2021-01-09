@@ -2,13 +2,12 @@ package com.werockstar.tourandroid
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivitySplashScreenBinding
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class SplashScreenActivity : AppCompatActivity(R.layout.activity_splash_screen) {
+class SplashScreenActivity : AppCompatActivity(), CoroutineScope {
 
 	private val binding: ActivitySplashScreenBinding by lazy {
 		ActivitySplashScreenBinding.inflate(layoutInflater)
@@ -16,10 +15,17 @@ class SplashScreenActivity : AppCompatActivity(R.layout.activity_splash_screen) 
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+		setContentView(binding.root)
 
-		Handler(Looper.getMainLooper())
-			.postDelayed({
-				startActivity(Intent(this, LoginActivity::class.java))
-			}, 3000)
+		launch {
+			delay(3000)
+			val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
+			startActivity(intent)
+			finish()
+		}
+
 	}
+
+	override val coroutineContext: CoroutineContext
+		get() = Job() + Dispatchers.Main
 }
