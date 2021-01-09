@@ -1,6 +1,7 @@
 package com.werockstar.tourandroid.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,11 @@ class HomeActivity : AppCompatActivity() {
 
 		viewModel.getUser()
 		viewModel.usersLiveData.observe(this, {
-			val adapter = HomeAdapter(it)
+			val adapter = HomeAdapter(it) { url ->
+				val webPage: Uri = Uri.parse(url)
+				val intent = Intent(Intent.ACTION_VIEW, webPage)
+				startActivity(intent)
+			}
 			binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
 			binding.recyclerView.adapter = adapter
 		})

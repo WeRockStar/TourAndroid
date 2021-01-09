@@ -24,10 +24,7 @@ class HomeViewModel @ViewModelInject constructor(
 	fun getUser() {
 		viewModelScope.launch(appDispatcher.main) {
 			val users = async(appDispatcher.io) { api.users() }
-			try {
-				_usersLiveData.value = users.await()
-			} catch (e: Exception) {
-			}
+			_usersLiveData.value = users.await()
 		}
 	}
 

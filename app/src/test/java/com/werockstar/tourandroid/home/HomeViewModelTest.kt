@@ -42,14 +42,16 @@ class HomeViewModelTest {
 	@Test
 	fun `when user call getUser success should return list of users`() = runBlocking {
 		val appDispatcher = AppDispatcher(Dispatchers.Unconfined, Dispatchers.Unconfined)
-		val stubUsers = listOf(User("werockstar", "https://google.com/image"))
+		val stubUsers =
+			listOf(User("werockstar", "https://google.com/image", "https://google.com/image"))
 		whenever(api.users()).thenReturn(stubUsers)
 
 		val viewModel = HomeViewModel(api, local, appDispatcher)
 
 		viewModel.getUser()
 
-		val expect = listOf(User("werockstar", "https://google.com/image"))
+		val expect =
+			listOf(User("werockstar", "https://google.com/image", "https://google.com/image"))
 		assertEquals(expect, viewModel.usersLiveData.value)
 	}
 }

@@ -7,10 +7,10 @@ import coil.load
 import com.werockstar.tourandroid.data.remote.User
 import com.werockstar.tourandroid.databinding.ItemRowBinding
 
-class HomeAdapter(private val users: List<User>) :
+class HomeAdapter(private val users: List<User>, val onItemDidTap: (url: String) -> Unit) :
 	RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
-	class HomeViewHolder(private val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
+	class HomeViewHolder(val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
 
 		fun bind(user: User) {
 			binding.ivUser.load(user.url)
@@ -26,6 +26,7 @@ class HomeAdapter(private val users: List<User>) :
 	override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
 		val user = users[position]
 		holder.bind(user)
+		holder.binding.root.setOnClickListener { onItemDidTap(user.pageUrl) }
 	}
 
 	override fun getItemCount(): Int = users.size
