@@ -1,14 +1,16 @@
 package com.werockstar.tourandroid.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.werockstar.tourandroid.databinding.ActivityHomeBinding
+import com.werockstar.tourandroid.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeActivity: AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
 	private val viewModel: HomeViewModel by viewModels()
 
@@ -24,5 +26,11 @@ class HomeActivity: AppCompatActivity() {
 			binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
 			binding.recyclerView.adapter = adapter
 		})
+
+		binding.ivExit.setOnClickListener {
+			viewModel.logout()
+			startActivity(Intent(this, LoginActivity::class.java))
+			finish()
+		}
 	}
 }

@@ -5,13 +5,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.werockstar.tourandroid.data.local.LocalStorage
 import com.werockstar.tourandroid.data.remote.TourAPI
 import com.werockstar.tourandroid.data.remote.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class HomeViewModel @ViewModelInject constructor(private val api: TourAPI) : ViewModel() {
+class HomeViewModel @ViewModelInject constructor(
+	private val api: TourAPI,
+	private val local: LocalStorage
+) : ViewModel() {
 
 	private val _usersLiveData = MutableLiveData<List<User>>()
 	val usersLiveData: LiveData<List<User>> = _usersLiveData
@@ -24,5 +28,9 @@ class HomeViewModel @ViewModelInject constructor(private val api: TourAPI) : Vie
 			} catch (e: Exception) {
 			}
 		}
+	}
+
+	fun logout() {
+		local.putBoolean("authenticate", false)
 	}
 }
