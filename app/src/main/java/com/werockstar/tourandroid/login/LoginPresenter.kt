@@ -1,7 +1,5 @@
 package com.werockstar.tourandroid.login
 
-import android.content.Intent
-import com.werockstar.tourandroid.home.HomeActivity
 import javax.inject.Inject
 
 class LoginPresenter @Inject constructor() {
