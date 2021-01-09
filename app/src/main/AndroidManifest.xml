@@ -2,15 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.werockstar.tourandroid">
 
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 	<application
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
+		android:name=".TourApp"
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.TourAndroid">
 		<activity
-			android:name=".SplashScreenActivity"
+			android:name=".splash.SplashScreenActivity"
 			android:theme="@style/Theme.TourAndroid.NoActionBar">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -20,11 +24,11 @@
 		</activity>
 
 		<activity
-			android:name=".HomeActivity"
+			android:name=".home.HomeActivity"
 			android:theme="@style/Theme.TourAndroid.NoActionBar" />
 
 		<activity
-			android:name=".LoginActivity"
+			android:name=".login.LoginActivity"
 			android:theme="@style/Theme.TourAndroid.NoActionBar" />
 	</application>
 

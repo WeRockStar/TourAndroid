@@ -1,9 +1,10 @@
-package com.werockstar.tourandroid
+package com.werockstar.tourandroid.login
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivityLoginBinding
+import com.werockstar.tourandroid.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
 

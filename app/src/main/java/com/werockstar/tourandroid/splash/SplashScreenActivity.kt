@@ -1,9 +1,10 @@
-package com.werockstar.tourandroid
+package com.werockstar.tourandroid.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivitySplashScreenBinding
+import com.werockstar.tourandroid.login.LoginActivity
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
