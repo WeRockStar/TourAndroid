@@ -1,9 +1,12 @@
 package com.werockstar.tourandroid.login
 
-import org.junit.Assert.assertEquals
+import com.nhaarman.mockitokotlin2.never
+import com.nhaarman.mockitokotlin2.times
+import com.nhaarman.mockitokotlin2.verify
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
 class LoginPresenterTest {
@@ -21,42 +24,24 @@ class LoginPresenterTest {
 
 		presenter.attachView(view)
 
+		val order = Mockito.inOrder(view)
 		presenter.authenticate("admin", "")
 
-		assertEquals("Ops! something went wrong", view.captureShowWarning)
+		order.verify(view, times(1)).resetPassword()
+		order.verify(view, times(1)).showWarning("Ops! something went wrong")
+
+		verify(view, never()).toHomeScreen()
 	}
 
 	@Test
 	fun `when password has correct should show warning`() {
 		val presenter = LoginPresenter()
-		val view = SpyLoginView()
-
 		presenter.attachView(view)
 
 		presenter.authenticate("admin", "admin")
 
-		assertEquals(1, view.captureHomeScreen)
-		assertEquals("", view.captureShowWarning)
-		assertEquals(0, view.captureResetPassword)
+		verify(view, times(1)).toHomeScreen()
+		verify(view, never()).resetPassword()
+		verify(view, never()).showWarning("Ops! something went wrong")
 	}
-}
-
-class SpyLoginView : LoginPresenter.LoginView {
-
-	var captureHomeScreen = 0
-	var captureResetPassword = 0
-	var captureShowWarning = ""
-
-	override fun toHomeScreen() {
-		captureHomeScreen += 1
-	}
-
-	override fun resetPassword() {
-		captureResetPassword += 1
-	}
-
-	override fun showWarning(message: String) {
-		captureShowWarning = message
-	}
-
 }
