@@ -1,5 +1,6 @@
 package com.werockstar.tourandroid
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivityLoginBinding
@@ -17,9 +18,10 @@ class LoginActivity : AppCompatActivity() {
 			val username = binding.editTextUsername.text.toString()
 
 			if (username == "admin" && password == "admin") {
-
+				startActivity(Intent(this, HomeActivity::class.java))
+				finish()
 			} else {
-				binding.editTextUsername.setText("")
+				binding.editTextPassword.setText("")
 			}
 		}
 

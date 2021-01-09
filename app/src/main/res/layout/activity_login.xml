@@ -70,7 +70,7 @@
 				android:layout_height="wrap_content"
 				android:fontFamily="@font/sukhumvit"
 				android:hint="password"
-				android:inputType="numberPassword"
+				android:inputType="text"
 				android:maxLength="12"
 				android:textStyle="bold" />
 		</com.google.android.material.textfield.TextInputLayout>

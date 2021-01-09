@@ -9,6 +9,8 @@ import kotlin.coroutines.CoroutineContext
 
 class SplashScreenActivity : AppCompatActivity(), CoroutineScope {
 
+	override val coroutineContext: CoroutineContext get() = Job() + Dispatchers.Main
+
 	private val binding: ActivitySplashScreenBinding by lazy {
 		ActivitySplashScreenBinding.inflate(layoutInflater)
 	}
@@ -21,11 +23,10 @@ class SplashScreenActivity : AppCompatActivity(), CoroutineScope {
 			delay(3000)
 			val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
 			startActivity(intent)
+			overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 			finish()
 		}
 
 	}
 
-	override val coroutineContext: CoroutineContext
-		get() = Job() + Dispatchers.Main
 }
