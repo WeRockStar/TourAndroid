@@ -10,8 +10,7 @@ import kotlinx.coroutines.Dispatchers
 @Module
 @InstallIn(SingletonComponent::class)
 class CoroutineModule {
+
 	@Provides
-	fun provideDispatcher(): AppDispatcher {
-		return AppDispatcher(Dispatchers.IO, Dispatchers.Main)
-	}
+	fun provideDispatcher(): AppDispatcher = AppDispatcher(Dispatchers.IO, Dispatchers.Main)
 }

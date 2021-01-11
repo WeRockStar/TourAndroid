@@ -17,11 +17,9 @@ class SplashPresenter @Inject constructor(private val local: LocalStorage) {
 	}
 
 	fun checkAuthentication() {
-		val isAuthenticated = local.getBoolean("authenticate")
-		if(isAuthenticated) {
-			view.toHome()
-		} else {
-			view.toLogin()
+		when(local.getBoolean("authenticate")) {
+			true -> view.toHome()
+			else -> view.toLogin()
 		}
 	}
 }

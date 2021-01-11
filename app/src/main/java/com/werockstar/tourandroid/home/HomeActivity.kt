@@ -22,7 +22,14 @@ class HomeActivity : AppCompatActivity() {
 		setContentView(binding.root)
 
 		viewModel.getUser()
+		binding.ivExit.setOnClickListener {
+			viewModel.logout()
+		}
 
+		observeEvents()
+	}
+
+	private fun observeEvents() {
 		viewModel.usersLiveData.observe(this, {
 			val adapter = HomeAdapter(it) { url ->
 				val webPage: Uri = Uri.parse(url)
@@ -33,11 +40,9 @@ class HomeActivity : AppCompatActivity() {
 			binding.recyclerView.adapter = adapter
 		})
 
-		binding.ivExit.setOnClickListener {
-			viewModel.logout().observe(this, {
-				startActivity(Intent(this, LoginActivity::class.java))
-				finish()
-			})
-		}
+		viewModel.logoutLiveData.observe(this, {
+			startActivity(Intent(this, LoginActivity::class.java))
+			finish()
+		})
 	}
 }

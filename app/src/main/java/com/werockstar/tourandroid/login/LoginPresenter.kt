@@ -18,13 +18,15 @@ class LoginPresenter @Inject constructor(private val local: LocalStorage) {
 	}
 
 	fun authenticate(username: String, password: String) {
-		if (username == "admin" && password == "admin") {
-			local.putBoolean("authenticate", true)
-			view.toHomeScreen()
-		} else {
-			local.putBoolean("authenticate", false)
-			view.resetPassword()
-			view.showWarning("Ops! something went wrong")
+		val isAuthenticateSuccess = username == "admin" && password == "admin"
+		local.putBoolean("authenticate", isAuthenticateSuccess)
+
+		when (isAuthenticateSuccess) {
+			true -> view.toHomeScreen()
+			false -> {
+				view.resetPassword()
+				view.showWarning("Ops! something went wrong")
+			}
 		}
 	}
 
