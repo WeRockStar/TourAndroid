@@ -1,10 +1,7 @@
 package com.werockstar.tourandroid.home
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.werockstar.tourandroid.data.local.LocalStorage
 import com.werockstar.tourandroid.data.remote.TourAPI
 import com.werockstar.tourandroid.data.remote.User
@@ -28,7 +25,8 @@ class HomeViewModel @ViewModelInject constructor(
 		}
 	}
 
-	fun logout() {
+	fun logout() = liveData {
 		local.putBoolean("authenticate", false)
+		emit(Unit)
 	}
 }
