@@ -14,7 +14,7 @@
 		android:supportsRtl="true"
 		android:theme="@style/Theme.TourAndroid">
 		<activity
-			android:name=".splash.SplashScreenActivity"
+			android:name="com.werockstar.tourandroid.presentation.splash.SplashScreenActivity"
 			android:theme="@style/Theme.TourAndroid.NoActionBar">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,11 @@
 		</activity>
 
 		<activity
-			android:name=".home.HomeActivity"
+			android:name="com.werockstar.tourandroid.presentation.home.HomeActivity"
 			android:theme="@style/Theme.TourAndroid.NoActionBar" />
 
 		<activity
-			android:name=".login.LoginActivity"
+			android:name="com.werockstar.tourandroid.presentation.login.LoginActivity"
 			android:theme="@style/Theme.TourAndroid.NoActionBar" />
 	</application>
 

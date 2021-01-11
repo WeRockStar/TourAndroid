@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.splash
+package com.werockstar.tourandroid.presentation.splash
 
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever

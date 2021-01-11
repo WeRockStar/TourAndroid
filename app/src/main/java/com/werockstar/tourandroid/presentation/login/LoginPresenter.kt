@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.login
+package com.werockstar.tourandroid.presentation.login
 
 import com.werockstar.tourandroid.data.local.LocalStorage
 import javax.inject.Inject

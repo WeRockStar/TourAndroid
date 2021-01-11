@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.splash
+package com.werockstar.tourandroid.presentation.splash
 
 import com.werockstar.tourandroid.data.local.LocalStorage
 import javax.inject.Inject

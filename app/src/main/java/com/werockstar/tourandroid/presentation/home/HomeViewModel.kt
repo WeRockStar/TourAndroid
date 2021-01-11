@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.home
+package com.werockstar.tourandroid.presentation.home
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.werockstar.tourandroid.data.local.LocalStorage
 import com.werockstar.tourandroid.data.remote.TourAPI
 import com.werockstar.tourandroid.data.remote.User
-import com.werockstar.tourandroid.thread.AppDispatcher
+import com.werockstar.tourandroid.coroutines.AppDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 

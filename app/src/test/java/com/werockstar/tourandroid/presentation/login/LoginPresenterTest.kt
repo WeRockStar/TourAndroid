@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.login
+package com.werockstar.tourandroid.presentation.login
 
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.times

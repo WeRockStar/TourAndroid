@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.home
+package com.werockstar.tourandroid.presentation.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

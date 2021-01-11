@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.home
+package com.werockstar.tourandroid.presentation.home
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.verify
@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.werockstar.tourandroid.data.local.LocalStorage
 import com.werockstar.tourandroid.data.remote.TourAPI
 import com.werockstar.tourandroid.data.remote.User
-import com.werockstar.tourandroid.thread.AppDispatcher
+import com.werockstar.tourandroid.coroutines.AppDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

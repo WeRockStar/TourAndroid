@@ -1,11 +1,11 @@
-package com.werockstar.tourandroid.login
+package com.werockstar.tourandroid.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivityLoginBinding
-import com.werockstar.tourandroid.home.HomeActivity
+import com.werockstar.tourandroid.presentation.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.werockstar.tourandroid.home
+package com.werockstar.tourandroid.presentation.home
 
 import android.content.Intent
 import android.net.Uri
@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.werockstar.tourandroid.databinding.ActivityHomeBinding
-import com.werockstar.tourandroid.login.LoginActivity
+import com.werockstar.tourandroid.presentation.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,11 +1,11 @@
-package com.werockstar.tourandroid.splash
+package com.werockstar.tourandroid.presentation.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.werockstar.tourandroid.databinding.ActivitySplashScreenBinding
-import com.werockstar.tourandroid.home.HomeActivity
-import com.werockstar.tourandroid.login.LoginActivity
+import com.werockstar.tourandroid.presentation.home.HomeActivity
+import com.werockstar.tourandroid.presentation.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
